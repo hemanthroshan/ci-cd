@@ -24,4 +24,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/project/browser  # <--- CHANGE THIS NAME
+          publish_dir: ./project/dist/project/browser  # <--- CHANGE THIS NAME
