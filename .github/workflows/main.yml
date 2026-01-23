@@ -1,7 +1,7 @@
 name: Angular CI
 on:
   push:
-    branches: [ main ]  # Runs every time you push code
+    branches: [ master ]  # Runs every time you push code
 
 jobs:
   build:
