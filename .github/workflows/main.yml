@@ -1,0 +1,21 @@
+name: Angular CI
+on:
+  push:
+    branches: [ main ]  # Runs every time you push code
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install Packages
+        run: npm install
+
+      - name: Build App
+        run: npm run build
