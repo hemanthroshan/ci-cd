@@ -19,3 +19,4 @@ jobs:
 
       - name: Build App
         run: npm run build -- --base-href=/ci-cd
+        publish_dir: ./dist/project/browser  # Replace with your actual Angular app folder name
