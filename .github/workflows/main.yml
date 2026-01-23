@@ -1,7 +1,7 @@
 name: Angular CI
 on:
   push:
-    branches: [ master ]  # Runs every time you push code
+    branches: [ master ]
 
 jobs:
   build:
@@ -18,10 +18,10 @@ jobs:
         run: npm install
 
       - name: Build App
-        run: npm run build -- --base-href /ci-cd
-      
+        run: npm run build -- --base-href /ci-cd/
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/project/browser  # Ensure 'project' matches your folder name in dist
+          publish_dir: ./dist/project/browser  # <--- CHANGE THIS NAME
