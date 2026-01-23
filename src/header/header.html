@@ -1,0 +1,30 @@
+<p>Hello {{title}}
+    <button (click)="sendName()">Value {{direction()}} Parent</button>
+</p>
+
+<h2>Reactive Forms</h2>
+<div>
+    <form [formGroup]="myForm">
+        <div>
+            <label for="userName">Name</label>
+            <input type="text" formControlName="userName" />
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" formControlName="password" />
+        </div>
+        <div>
+            <label for="age">Age</label>
+            <input type="number" formControlName="age" />
+        </div>
+        <div>
+            <label for="location">Location</label>
+            <input type="text" formControlName="location" />
+        </div>
+        <button (click)="formSubmit()">Submit</button>
+    </form>
+    @if(myForm.valid){
+        <div>Form is Valid</div>
+        {{myForm.value | json}}
+    }
+</div>

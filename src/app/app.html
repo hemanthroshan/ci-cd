@@ -1,0 +1,46 @@
+<app-header [title]="toChild()" (outputName)="onOutputName($event)"></app-header>
+<!-- <button (click)="getRandomMessage()">Toggle Wish</button>
+
+@if(wish()){
+    <div>{{msg()}} </div>
+}
+@else{
+    <div>No wishes available.</div>
+}
+@switch(randomId()){
+    @case(1){
+        <div>{{items[0].msg}}</div>
+    }
+    @case(2){
+        <div>{{items[1].msg}}</div>
+    }
+    @case(3){
+        <div>{{items[2].msg}}</div>
+    }
+    @case(4){
+        <div>{{items[3].msg}}</div>
+    }
+    @default{
+        <div>Good Bye</div>
+    }
+} -->
+
+
+<h1>Dummy Data</h1>
+<!-- @for(item of dummyData.users; track item.id){
+    <div>{{item.firstName}} {{item.lastName}}</div>
+    @defer(on hover){
+        <div><img src="{{item.image}}"></div>
+    }
+    @loading(after 1s; minimum 3s){
+        <div>{{item.firstName}} {{item.lastName}}</div>
+    }
+    @placeholder(minimum 2s){
+        <div>Loading image...</div>
+    }
+} -->
+<nav>
+    <a routerLink="/home">Home</a> 
+    <a routerLink="/about">About</a>
+</nav>
+<router-outlet />
