@@ -16,12 +16,15 @@ jobs:
 
       - name: Install Packages
         run: npm install
+        working-directory: ./project # Tells GitHub to go inside your 'project' folder first
 
       - name: Build App
         run: npm run build -- --base-href /ci-cd/
+        working-directory: ./project
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./project/dist/project/browser  # <--- CHANGE THIS NAME
+          # Path based on your image: top-folder/project-folder/dist/project-folder/browser
+          publish_dir: ./project/dist/project/browser
