@@ -1,0 +1,22 @@
+<div class="table-responsive">
+    <cdk-virtual-scroll-viewport itemSize="48" class="table-viewport">
+        <table class="table table-striped table-hover align-middle">
+            <thead class="table-dark">
+                <tr>
+                    @for(col of columns(); track col){
+                        <th>{{col.header}}</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                 <ng-container *cdkVirtualFor="let row of data()">
+                     <tr  >
+                     @for(col of columns(); track col.field){
+                         <td>{{resolveField(row,col.field)}}</td>
+                     }
+                     </tr>
+                 </ng-container>
+            </tbody>
+        </table>
+    </cdk-virtual-scroll-viewport>
+</div>

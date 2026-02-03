@@ -10,7 +10,7 @@ interface Item {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterLink,RouterOutlet,Header],
+  imports: [RouterOutlet,RouterLink],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
