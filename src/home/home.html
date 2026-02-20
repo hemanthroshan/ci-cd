@@ -1,5 +1,35 @@
 @defer(on viewport){
-    <app-table [columns]="columns" [data]="data"></app-table>
+  <div class="container">
+    <div>
+      <input type="text" placeholder="Search.." (input)="searchTerm.set($any($event.target).value)" />
+    </div>
+    <div>
+      <label for="PageSize">Page Size:</label>
+      <select id="PageSize" (change)="pageSize.set($any($event.target).value)">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+      </select>
+      <button 
+      (click)="prevPage()" 
+      [disabled]="currentPage() === 1">
+      Prev
+    </button>
+    
+    <span class="page-info">
+      {{ currentPage() }} / {{ totalPages() }}
+    </span>
+
+    
+    <button 
+      (click)="nextPage()" 
+      [disabled]="currentPage() === totalPages()">
+      Next
+    </button>
+    </div>
+  </div>
+  <app-table [columns]="columns" [data]="paginatedData()"></app-table>
 }
 @placeholder {
   <div class="card" aria-hidden="true">
