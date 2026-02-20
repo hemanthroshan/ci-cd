@@ -1,1 +1,54 @@
-<p>home works!</p>
+@defer(on viewport){
+  <div class="container">
+    <div>
+      <input type="text" placeholder="Search.." (input)="searchTerm.set($any($event.target).value)" />
+    </div>
+    <div>
+      <label for="PageSize">Page Size:</label>
+      <select id="PageSize" (change)="pageSize.set($any($event.target).value)">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+      </select>
+      <button 
+      (click)="prevPage()" 
+      [disabled]="currentPage() === 1">
+      Prev
+    </button>
+    
+    <span class="page-info">
+      {{ currentPage() }} / {{ totalPages() }}
+    </span>
+
+    
+    <button 
+      (click)="nextPage()" 
+      [disabled]="currentPage() === totalPages()">
+      Next
+    </button>
+    </div>
+  </div>
+  <app-table [columns]="columns" [data]="paginatedData()"></app-table>
+}
+@placeholder {
+  <div class="card" aria-hidden="true">
+    <div class="card-body">
+      <h5 class="card-title placeholder-glow">
+        <span class="placeholder col-6"></span>
+      </h5>
+      <p class="card-text placeholder-glow">
+        <span class="placeholder col-7"></span>
+        <span class="placeholder col-4"></span>
+      </p>
+    </div>
+  </div>
+} 
+@loading (minimum 4s) {
+  <div class="d-flex justify-content-center align-items-center my-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <strong class="ms-3 text-primary">Fetching Table Data...</strong>
+  </div>
+}

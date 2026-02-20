@@ -1,0 +1,9 @@
+.table-viewport {
+  height: 450px;
+  width: 100%;
+  overflow-y: auto;
+}
+
+/* cdk-virtual-scroll-viewport {
+  display: block;
+} */
